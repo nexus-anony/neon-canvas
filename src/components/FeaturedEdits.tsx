@@ -63,7 +63,7 @@ const FeaturedEdits = () => {
           <p className="text-muted-foreground">Selected AMV edits showcasing editing skills</p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
           {featured.map((edit, i) => (
             <EditCard key={edit.filename} edit={edit} index={i} onClick={() => setSelectedEdit(edit)} />
           ))}

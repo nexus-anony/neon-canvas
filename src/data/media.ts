@@ -22,28 +22,30 @@ function extractTags(filename: string): string[] {
 }
 
 // === ADD YOUR GIF FILENAMES HERE ===
-const gifFilenames = [
-  "naruto_action.gif",
-  "sad_itachi.gif",
-  "romantic_sunset.gif",
-  "nightcore_vibes.gif",
-  "action_fight.gif",
-  "sad_rain.gif",
-  "romantic_kiss.gif",
-  "action_explosion.gif",
-  "nightcore_glow.gif",
+const gifData = [
+  { filename: "camellya-wuthering-waves (3).gif", tags: ["wuthering-waves", "camellya"] },
+  { filename: "Demons.gif", tags: ["dark", "anime"] },
+  { filename: "Finger.gif", tags: ["action", "anime"] },
+  { filename: "Nilou.gif", tags: ["genshin-impact", "nilou"] },
+  { filename: "phrolova-1.gif", tags: ["phrolova", "wuthering-waves"] },
+  { filename: "phrolova-2.gif", tags: ["phrolova", "wuthering-waves"] },
+  { filename: "Returns.gif", tags: ["action"] },
+  { filename: "Screen.gif", tags: ["aesthetic"] },
+  { filename: "Steals.gif", tags: ["action"] },
+  { filename: "wuthering-waves-wuwa (1).gif", tags: ["wuthering-waves", "wuwa"] },
 ];
 
 // === ADD YOUR EDIT FILENAMES HERE ===
 const editFilenames = [
-  "amv_edit_01.mp4",
-  "amv_edit_02.mp4",
-  "amv_edit_03.mp4",
+  "HookahBar.mp4",
+  "Kompa.mp4",
+  "SunSaathiya.mp4",
+  "TumMile.mp4",
 ];
 
-export const gifs: GifItem[] = gifFilenames.map((filename) => ({
+export const gifs: GifItem[] = gifData.map(({ filename, tags }) => ({
   filename,
-  tags: extractTags(filename),
+  tags,
   src: `/gifs/${filename}`,
 }));
 
@@ -54,7 +56,7 @@ export const edits: EditItem[] = editFilenames.map((filename) => ({
 }));
 
 // Extract unique filter categories from tags
-const categoryKeywords = ["action", "sad", "romantic", "nightcore"];
+const categoryKeywords = ["wuthering-waves", "genshin-impact", "phrolova", "action", "anime", "aesthetic", "dark"];
 export const categories = ["all", ...categoryKeywords];
 
 export function filterGifs(category: string): GifItem[] {
