@@ -1,7 +1,3 @@
-// Media manifest — add your GIFs and edits here.
-// Since Vite can't dynamically scan /public at runtime, list them manually.
-// Tags are extracted from filenames: "naruto_action.gif" → ["naruto", "action"]
-
 export interface GifItem {
   filename: string;
   tags: string[];
@@ -12,13 +8,6 @@ export interface EditItem {
   filename: string;
   src: string;
   featured: boolean;
-}
-
-function extractTags(filename: string): string[] {
-  return filename
-    .replace(/\.(gif|mp4|webm)$/, "")
-    .split(/[_\-]/)
-    .map((t) => t.toLowerCase());
 }
 
 // === ADD YOUR GIF FILENAMES HERE ===
@@ -55,7 +44,6 @@ export const edits: EditItem[] = editFilenames.map((filename) => ({
   featured: true,
 }));
 
-// Extract unique filter categories from tags
 const categoryKeywords = ["wuthering-waves", "genshin-impact", "phrolova", "action", "anime", "aesthetic", "dark"];
 export const categories = ["all", ...categoryKeywords];
 
